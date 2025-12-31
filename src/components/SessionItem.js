@@ -27,7 +27,7 @@ const SessionItem = ({ item, onDelete }) => {
     const minStr = min.toString().padStart(2, "0");
     const secStr = sec.toString().padStart(2, "0");
 
-    return `${minStr} min : ${secStr} sec`;
+    return `${minStr} : ${secStr}`;
   };
 
   const renderRightActions = (progress, dragX) => {
