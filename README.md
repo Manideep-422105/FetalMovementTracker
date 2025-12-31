@@ -6,59 +6,149 @@ A calm, intuitive mobile application built with **React Native** and **Expo** to
 
 ## ✨ Features
 
-* **⏱️ Kick Timer:** Interactive timer with a "breathing" ripple animation to record the duration it takes to reach 10 kicks.
-* **📜 History Log:** Persistent storage of past sessions with date, time, and duration.
-* **🗑️ Swipe-to-Delete:** Smooth gesture-based deletion for managing history records (iOS-style).
-* **ℹ️ Guidance Modal:** Frosted glass overlay providing clear instructions on how to perform the count.
-* **🎨 Custom UI:** Clean, pastel-themed interface designed for readability and comfort.
+- **⏱️ Kick Timer**  
+  Interactive timer with a soothing ripple animation to track the time taken to reach 10 movements.
+
+- **📜 History Log**  
+  Automatically saves past sessions with date, time, and duration.
+
+- **🗑️ Swipe-to-Delete**  
+  Smooth, iOS-style gesture-based deletion for managing records.
+
+- **ℹ️ Guidance Modal**  
+  Frosted glass modal providing clear, accessible instructions.
+
+- **🎨 Comfort-Focused UI**  
+  Soft pastel theme and readability-first design for a pleasant experience.
 
 ---
 
 ## 🛠️ Tech Stack & Libraries
 
-This project relies on the **Expo** ecosystem. Key dependencies include:
+This project is built using the **Expo ecosystem** with the following major dependencies:
 
 | Category | Library | Purpose |
-| :--- | :--- | :--- |
-| **Core** | `react`, `react-native` | UI and Application Logic |
-| **Framework** | `expo` | Build and Development Environment |
-| **Navigation** | `@react-navigation/native` | Screen navigation structure |
-| **Storage** | `@react-native-async-storage` | Persisting user data locally |
-| **Interactions**| `react-native-gesture-handler` | Swipe gestures for list items |
-| **Visuals** | `expo-blur` | Glassmorphism effects (BlurView) |
-| **Visuals** | `react-native-reanimated` | Advanced animations (optional dependency) |
-| **Icons** | `@expo/vector-icons` | Feather & FontAwesome5 icons |
+|--------|--------|--------|
+| **Core** | `react`, `react-native` | UI & App Logic |
+| **Framework** | `expo` | Build & Dev Environment |
+| **Navigation** | `@react-navigation/native` | Screen Navigation |
+| **Storage** | `@react-native-async-storage/async-storage` | Local Persistence |
+| **Interactions** | `react-native-gesture-handler` | Swipe Gestures |
+| **Visuals** | `expo-blur` | Glassmorphism UI |
+| **Animations** | `react-native-reanimated` | Smooth Animations |
+| **Icons** | `@expo/vector-icons` | Icons |
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Prerequisites
-Ensure you have the following installed on your machine:
-* [Node.js](https://nodejs.org/) (LTS version recommended)
-* [Git](https://git-scm.com/)
+### 1️⃣ Prerequisites
+Ensure you have:
+- Node.js (LTS Recommended)
+- Git installed
 
-### 2. Installation
-Clone the project and install dependencies:
+---
+
+### 2️⃣ Installation
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/Manideep-422105/FetalMovementTracker.git
 
-# Navigate to project directory
+# Navigate to the project
 cd FetalMovementTracker
 
 # Install dependencies
 npm install
+```
+
+---
+
+## ▶️ Running the App
+
+Start the local development server:
+
+```bash
+npx expo start
+```
+
+**Physical Device**
+- Install **Expo Go**
+- Scan the QR code from the terminal or browser
+
+**Emulator**
+- Press `a` → Launch Android Emulator  
+- Press `i` → Launch iOS Simulator (macOS + Xcode required)
+
+---
+
+## 📱 Building the APK (Android)
+
+To generate an installable APK:
+
+### Install EAS CLI
+```bash
+npm install -g eas-cli
+```
+
+### Login to Expo
+```bash
+eas login
+```
+
+### Build APK
+```bash
+eas build -p android --profile preview
+```
+
+⏳ Build takes about **10–15 minutes**  
+📥 You will receive a **download link** once complete
+
+---
+
+## 💾 Data Structure
+
+The app uses **AsyncStorage** to save records locally under the key:
+
+```
+dfm_sessions
+```
+
+### Record Schema
+
+```json
+{
+  "id": "1735645823123",
+  "date": "2025-12-31T10:30:00Z",
+  "duration": 145,
+  "kickCount": 10
+}
+```
+
+| Field | Type | Description |
+|------|------|-------------|
+| id | String | Unique timestamp ID |
+| date | String (ISO) | Session timestamp |
+| duration | Number | Time taken in seconds |
+| kickCount | Number | Always 10 |
+
+---
+
+## 📝 Assumptions & Design Decisions
+
+- **Cardiff “Count-to-Ten” Method**  
+  Measures time to feel 10 distinct movements.
+
+- **Local Storage Only (Privacy Focus)**  
+  No cloud sync or backend.  
+  ⚠️ Uninstalling the app removes all history.
+
+- **Single User App**  
+  No authentication or profiles.
+
+- **Gesture-Based Deletion**
+  Right-to-left swipe to delete records for a clean UI.
+
+---
 
 
-
-
-📝 Assumptions & Design Decisions
-Cardiff "Count-to-Ten" Method: The application assumes the user is following the standard protocol of tracking how long it takes to feel 10 distinct fetal movements. The target is fixed at 10.
-
-Local Storage: To ensure privacy and simplicity, all data is stored locally on the device. There is no cloud sync or backend database. Uninstalling the app will clear the history.
-
-Single User: The app is designed for a single user; there are no authentication or multi-profile features.
-
-Gesture UI: Deletion of records uses a "Right-to-Left" swipe gesture, a common pattern in mobile UX, to keep the interface clean of clutter buttons.
