@@ -27,14 +27,6 @@ export const saveSession = async (newSession) => {
   }
 };
 
-export const clearAllSessions = async () => {
-  try {
-    await AsyncStorage.removeItem(STORAGE_KEY);
-  } catch (e) {
-    console.error("Error clearing sessions:", e);
-  }
-};
-
 export const deleteSession = async (id) => {
   try {
     const existingSessions = await getSessions();
