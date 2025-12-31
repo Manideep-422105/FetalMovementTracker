@@ -102,7 +102,7 @@ const Counter = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={require("../../assests/bg_gradient.png")}
+      source={require("../../assets/bg_gradient.png")}
       style={styles.backgroundImage}
       imageStyle={{ opacity: 0.1 }}
       resizeMode="cover"

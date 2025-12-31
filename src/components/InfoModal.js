@@ -28,7 +28,7 @@ const InfoModal = ({ visible, onClose }) => {
         {/* Header Card */}
         <View style={styles.headerCard}>
           <Image
-            source={require("../../assests/Footprints.png")}
+            source={require("../../assets/Footprints.png")}
             style={styles.iconImage}
             resizeMode="contain"
           />

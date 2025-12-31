@@ -11,7 +11,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { useFocusEffect } from "@react-navigation/native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { getSessions, deleteSession } from "../utils/storage"; 
+import { getSessions, deleteSession } from "../utils/storage";
 import SessionItem from "../components/SessionItem";
 
 const Home = ({ navigation }) => {
@@ -30,10 +30,9 @@ const Home = ({ navigation }) => {
   };
 
   const handleDeleteSession = async (id) => {
-    const newSessions = sessions.filter(session => session.id !== id);
+    const newSessions = sessions.filter((session) => session.id !== id);
     setSessions(newSessions);
     await deleteSession(id);
-
   };
 
   useLayoutEffect(() => {
@@ -45,7 +44,7 @@ const Home = ({ navigation }) => {
       headerRight: () => (
         <TouchableOpacity style={{ marginRight: 16 }}>
           <Image
-            source={require("../../assests/Badge.png")}
+            source={require("../../assets/Badge.png")}
             style={{
               width: 70,
               height: 30,
@@ -61,19 +60,19 @@ const Home = ({ navigation }) => {
     <View style={styles.headerContainer}>
       <View style={styles.articleCard}>
         <ImageBackground
-          source={require("../../assests/article.jpg")}
+          source={require("../../assets/article.jpg")}
           style={styles.articleBackground}
           imageStyle={{ borderRadius: 16 }}
           resizeMode="cover"
         >
           <Image
-            source={require("../../assests/blur.png")}
+            source={require("../../assets/blur.png")}
             style={[StyleSheet.absoluteFill, { borderRadius: 16 }]}
             resizeMode="cover"
           />
 
           <Image
-            source={require("../../assests/leap.png")}
+            source={require("../../assets/leap.png")}
             style={styles.badgeImage}
             resizeMode="contain"
           />
@@ -110,15 +109,12 @@ const Home = ({ navigation }) => {
           data={sessions}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <SessionItem 
-              item={item} 
-              onDelete={handleDeleteSession} 
-            />
+            <SessionItem item={item} onDelete={handleDeleteSession} />
           )}
           ListHeaderComponent={renderHeader}
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
-               <Text style={styles.emptyText}>No records yet.</Text>
+              <Text style={styles.emptyText}>No records yet.</Text>
             </View>
           }
           contentContainerStyle={styles.listContent}
@@ -218,11 +214,11 @@ const styles = StyleSheet.create({
   },
   emptyContainer: {
     height: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   emptyText: {
-    color: '#999',
+    color: "#999",
     fontSize: 14,
   },
 });
