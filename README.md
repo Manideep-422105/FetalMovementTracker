@@ -111,7 +111,7 @@ eas build -p android --profile preview
 The app uses **AsyncStorage** to save records locally under the key:
 
 ```
-dfm_sessions
+@fetal_movement_sessions
 ```
 
 ### Record Schema
